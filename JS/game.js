@@ -3,14 +3,13 @@
 
 
 window.onload = function() {
-	$("#quiz").css("display", "none");
+	// $("#quiz").css("display", "none");
 	$("#restart").on("click", function(){
 		 window.location.reload(true);
 	});
 	// $("#start").click($("#wrapper").show());
 	$("#submit").click(function(){
-		$("#quiz").css("display", "none");
-		$("#end").html("Wins: " + wins + "<br>Losses: " + losses)
+		
 		var one = $("input[type='radio'][name='1']:checked");
 		var oneVal =  one.val();
 		if (oneVal !== "Shane") {
@@ -82,6 +81,12 @@ window.onload = function() {
 		} else {
 			wins++
 		}
+		console.log(losses);
+		console.log(wins);
+		$("#begin").css("display", "none");
+		$("#submit").css("display", "none");
+		$("#quiz").css("display", "none");
+		$("#end").html("Wins: " + wins + "<br>Losses: " + losses);
 
 
 // "<div id ='Buttons'><button id='submit'>Submit</button><button id='restart'>Restart</button></div>")
@@ -117,7 +122,7 @@ function myFunction() {
 
 	var timer = {
 
-		time: 31,
+		time: 30,
 
 		reset: function() {
 			    timer.time = 30;
