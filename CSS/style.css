@@ -16,7 +16,9 @@ form{
 	font-size: 16px;
 }
 #box{
-	background-color: #af111c;
+	background: url(../images/back2.jpg);
+	background-size: 100%;
+	/*background-color: #af111c;*/
 	width: 60%;
 	margin: 20px auto 0 auto;
 	height: 1024px;

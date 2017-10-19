@@ -87,6 +87,8 @@ window.onload = function() {
 		$("#submit").css("display", "none");
 		$("#quiz").css("display", "none");
 		$("#end").html("Wins: " + wins + "<br>Losses: " + losses);
+		$("#box").css("background", "url(../TriviaGame/images/glenn.jpeg)");
+		$("#box").css("background-size", "100%");
 
 
 // "<div id ='Buttons'><button id='submit'>Submit</button><button id='restart'>Restart</button></div>")
