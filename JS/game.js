@@ -8,7 +8,7 @@ window.onload = function() {
 // Run function does all the calculations of the quiz
 	var run = function(){
 		var empty = 0;
-		
+ // should probably try this in a loop or a function but I need to finish everything first
 		var one = $("input[type='radio'][name='1']:checked");
 		var oneVal =  one.val();
 
@@ -134,6 +134,7 @@ window.onload = function() {
 	var wins = 0;
 	var losses = 0;
 	function myFunction() {
+		$(".btn").css("display", "inline-block");
 	    $("#quiz").css("display", "inline-block");//show quiz 
 	    load();//start timer
 	};//ends myFunction
@@ -145,10 +146,10 @@ window.onload = function() {
 
 	var timer = {
 
-		time: 10,
+		time: 60,
 
 		reset: function() {
-			    timer.time = 10;
+			    timer.time = 60;
 
     	$("#displayTimer").html("Time Remaining: " + timer.time + " seconds")
 		},
