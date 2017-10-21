@@ -13,8 +13,10 @@ h1{
 	font-size: 48px;
 }
 form{
+	
 	font-size: 16px;
 }
+
 #box{
 	background: url(../images/back2.jpg);
 	background-size: 100%;
@@ -54,4 +56,18 @@ form{
 }
 #begin{
 	display: inline-block;
+}
+#answers{
+	background-color: white;
+	color: red;
+	display:none;
+}
+#quizAnswers{
+	display:none;
+}
+#end{
+	width: 30%;
+	margin: 0 auto 0 auto;
+	color: black;
+	background-color: white;
 }

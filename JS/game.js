@@ -1,14 +1,16 @@
 
-window.onload = function() {
-	// $("#quiz").css("display", "none");
+$( document ).ready(function() {
 	$("#restart").on("click", function(){
 		 window.location.reload(true);
 	});//ends restart function
-
+	//answer button click
+	$("#quizAnswers").on("click", function(){
+		$("#answers").css("display", "inline-block")
+	});// ends quizAnswer button click
 // Run function does all the calculations of the quiz
 	var run = function(){
 		var empty = 0;
- // should probably try this in a loop or a function but I need to finish everything first
+ // should probably try this in a loop or a function of sorts but I need to finish everything first
 		var one = $("input[type='radio'][name='1']:checked");
 		var oneVal =  one.val();
 
@@ -111,13 +113,15 @@ window.onload = function() {
 		} else {
 			wins++
 		}
+		// timer.time = 10000;
 		// Shows and hides appropriate divs and buttons
 		$("#begin").css("display", "none");
 		$(".submit").css("display", "none");
 		$("html,body").scrollTop(0);
 		$("#quiz").css("display", "none");
+		$("#quizAnswers").css("display", "inline-block")
 		// Displays appropriate Quiz results and new background
-		$("#end").html("Wins: " + wins + "<br>Losses: " + losses + "<br>UnAnswered: " + empty);
+		$("#end").html("Correct Answers: " + wins + "<br>Wrong Answers: " + losses + "<br>UnAnswered: " + empty);
 		$("#box").css("background", "url(../TriviaGame/images/glenn.jpeg)");
 		$("#box").css("background-size", "100%");
 
@@ -125,6 +129,8 @@ window.onload = function() {
 
 	// The submit Click to run results of quiz
 	$(".submit").click(function(){
+		clockRunning= false;
+	    clearInterval(intervalId);//stop timer
 		run();
 	});//ends submit click function
 
@@ -133,16 +139,24 @@ window.onload = function() {
 	document.getElementById("begin").addEventListener("click", myFunction);
 	var wins = 0;
 	var losses = 0;
-	function myFunction() {
-		$(".btn").css("display", "inline-block");
-	    $("#quiz").css("display", "inline-block");//show quiz 
-	    load();//start timer
-	};//ends myFunction
-
 	var intervalId;
 
 
-	var clockRunning = false;		
+	var clockRunning = false;	
+
+	function myFunction() {
+		$(".btn").css("display", "inline-block");
+	    $("#quiz").css("display", "inline-block");
+	    $("#quizAnswers").css("display", "none")
+	    //show quiz 
+	    load();//start timer
+	};//ends myFunction
+
+	$(".questions").hover(function(){ //change background on hover to make it more readable
+        $(this).css("background-color", "black");
+        }, function(){
+        $(this).css("background-color", "");
+    });//ends hover function
 
 	var timer = {
 
@@ -160,9 +174,12 @@ window.onload = function() {
 
     	if (timer.time <= 0) {
     		run();
+    		clockRunning= false; //stop timer
+	    	clearInterval(intervalId);
+
     	};
   
-    	var newtime = timer.time;
+    	// var newtime = timer.time;
    
 		$("#displayTimer").html("Time Remaining: " + timer.time + " seconds")
   		},
@@ -172,10 +189,13 @@ window.onload = function() {
 //Load function starts timer
 	var load = function(){
 		$("#displayTimer").html("Time Remaining: " + timer.time + " seconds")
-		    	intervalId = setInterval(timer.count, 1000);
-		    	clockRunning = true
+	    if(!clockRunning){
+	    intervalId = setInterval(timer.count, 1000);
+	    clockRunning=true;
+	    }
 	}//end of load function
-}//end of window load
+
+})//end of window load
 
 
 
