@@ -5,12 +5,13 @@ $( document ).ready(function() {
 	});//ends restart function
 	//answer button click
 	$("#quizAnswers").on("click", function(){
-		$("#answers").css("display", "inline-block")
+		$("#answers").css("display", "inline-block");
 	});// ends quizAnswer button click
 // Run function does all the calculations of the quiz
 	var run = function(){
 		var empty = 0;
  // should probably try this in a loop or a function of sorts but I need to finish everything first
+ // Question 1 check
 		var one = $("input[type='radio'][name='1']:checked");
 		var oneVal =  one.val();
 
@@ -20,9 +21,9 @@ $( document ).ready(function() {
 		else if (oneVal !== "Shane") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
-
+// Question 2 check
 		var two = $("input[type='radio'][name='2']:checked");
 		var twoVal = two.val();
 		if (twoVal == undefined) {
@@ -33,6 +34,7 @@ $( document ).ready(function() {
 		} else{
 			wins++;
 		}
+// Question 3 check
 		var three = $("input[type='radio'][name='3']:checked");
 		var threeVal = three.val();
 		if (threeVal == undefined) {
@@ -41,8 +43,9 @@ $( document ).ready(function() {
 		else if (threeVal !== "Her boyfriend and her friend") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 4 check
 		var four = $("input[type='radio'][name='4']:checked");
 		var fourVal = four.val();
 		if (fourVal == undefined) {
@@ -51,8 +54,9 @@ $( document ).ready(function() {
 		else if (fourVal !== "A deer") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 5 check
 		var five = $("input[type='radio'][name='5']:checked");
 		var fiveVal =five.val();
 		if (fiveVal == undefined) {
@@ -61,8 +65,9 @@ $( document ).ready(function() {
 		else if (fiveVal !== "Clear") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 6 check
 		var six = $("input[type='radio'][name='6']:checked");
 		var sixVal =six.val();
 		if (sixVal == undefined) {
@@ -71,8 +76,9 @@ $( document ).ready(function() {
 		else if (sixVal !== "Penny") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 7 check
 		var seven = $("input[type='radio'][name='7']:checked");
 		var sevenVal = seven.val();
 		if (sevenVal == undefined) {
@@ -81,8 +87,9 @@ $( document ).ready(function() {
 		else if (sevenVal !== "Eugene") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 8 check
 		var eight = $("input[type='radio'][name='8']:checked");
 		var eightVal =eight.val();
 		if (eightVal == undefined) {
@@ -91,8 +98,9 @@ $( document ).ready(function() {
 		else if (eightVal !== "Pregnancy Test") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 9 check
 		var nine = $("input[type='radio'][name='9']:checked");
 		var nineVal = nine.val();
 		if (nineVal == undefined) {
@@ -101,8 +109,9 @@ $( document ).ready(function() {
 		else if (nineVal !== "Maggie") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
+// Question 10 check
 		var ten = $("input[type='radio'][name='10']:checked");
 		var tenVal = ten.val()
 		if (tenVal == undefined) {
@@ -111,15 +120,15 @@ $( document ).ready(function() {
 		else if (tenVal !== "Baseball Bat") {
 			losses++;
 		} else {
-			wins++
+			wins++;
 		}
-		// timer.time = 10000;
+		
 		// Shows and hides appropriate divs and buttons
 		$("#begin").css("display", "none");
 		$(".submit").css("display", "none");
 		$("html,body").scrollTop(0);
 		$("#quiz").css("display", "none");
-		$("#quizAnswers").css("display", "inline-block")
+		$("#quizAnswers").css("display", "inline-block");
 		// Displays appropriate Quiz results and new background
 		$("#end").html("Correct Answers: " + wins + "<br>Wrong Answers: " + losses + "<br>UnAnswered: " + empty);
 		$("#box").css("background", "url(../TriviaGame/images/glenn.jpeg)");
@@ -158,6 +167,7 @@ $( document ).ready(function() {
         $(this).css("background-color", "");
     });//ends hover function
 
+// Timer Below
 	var timer = {
 
 		time: 60,
@@ -195,7 +205,7 @@ $( document ).ready(function() {
 	    }
 	}//end of load function
 
-})//end of window load
+})//end of Document ready
 
 
 
